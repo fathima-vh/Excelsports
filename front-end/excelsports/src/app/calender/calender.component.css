@@ -1,0 +1,83 @@
+.container {
+  max-width: 800px; /* Adjust to your desired width */
+  margin: 0 auto; /* Center the container */
+  padding: 0 15px; /* Add some padding to avoid edges */
+}
+
+.full-calendar {
+  width: 100%; /* Make it fill the container */
+  max-width: 600px; /* Set a maximum width */
+  max-height: 500px; /* Set a maximum height */
+  height: auto; /* Allow height to adjust automatically based on the content */
+  margin: 0 auto; /* Center the calendar */
+  overflow: hidden; /* Ensure no scrolling */
+}
+
+@media (max-width: 768px) {
+  .full-calendar {
+    max-width: 90%; /* Use 90% of the screen width on small screens */
+    max-height: 400px; /* Adjust max height on smaller screens */
+  }
+}
+
+
+
+.calendar-ring {
+  position: relative;
+  width: 80px;  
+  height: 80px; 
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  background: none;
+}
+
+.percentage-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px; 
+  font-weight: bold;
+  color: black;
+  text-align: center;
+  background: none;
+}
+
+svg {
+  transform: rotate(-90deg); 
+  background-color: transparent;  
+  display: block; 
+  border: none;
+  background: none;
+}
+
+
+circle {
+  transition: stroke-dasharray 1s ease-in-out;
+  stroke-linecap: round; 
+  fill: none; 
+}
+
+
+.progress-ring {
+  animation: progress-animation 1s ease-in-out forwards;
+}
+
+@keyframes progress-animation {
+  0% {
+    stroke-dasharray: 0, 440; 
+  }
+  100% {
+    stroke-dasharray: 440, 440; 
+  }
+}
+
+
+.fc-daygrid-day-events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

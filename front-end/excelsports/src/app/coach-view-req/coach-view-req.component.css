@@ -1,0 +1,122 @@
+/* General styling for the page */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.card.custom-card {
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #ffffff;
+}
+
+.card.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header */
+.card-header.custom-card-header {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Card Body */
+.card-body {
+  padding: 1.5rem;
+  color: #495057;
+}
+
+.card-body p {
+  margin-bottom: 1rem;
+}
+
+.card-body strong {
+  color: #343a40;
+}
+
+/* Button styling */
+.btn {
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  width: 48%;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+.btn-accept {
+  background-color: #24bb24;
+  border-color: #24bb24;
+  color: #ffffff;
+}
+
+.btn-accept:hover {
+  background-color: rgb(81, 231, 101);
+  border-color: rgb(81, 231, 101);
+}
+
+.btn-decline {
+  background-color: #dc3545;
+  border-color: #dc3545;
+  color: #ffffff;
+}
+
+.btn-decline:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+/* Layout Adjustments */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.col-lg-4,
+.col-md-6,
+.col-sm-12 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.d-flex {
+  gap: 10px;
+}
+
+.text-muted {
+  color: #6c757d !important;
+}
+
+/* Make layout responsive */
+@media (max-width: 768px) {
+  .card.custom-card {
+    margin-bottom: 20px;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .btn {
+    width: 100%; /* Buttons take full width on smaller screens */
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body {
+    padding: 1rem;
+  }
+}

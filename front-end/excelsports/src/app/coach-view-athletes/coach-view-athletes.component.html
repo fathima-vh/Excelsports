@@ -1,0 +1,68 @@
+<app-coach-header></app-coach-header>
+
+<!-- Athlete Cards -->
+<div class="scrollable-container">
+  <h3>Available Athletes</h3>
+  <div class="row justify-content-center">
+    <div *ngFor="let athlete of athletes" class="col-md-6 col-lg-4 mb-4">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0">{{ athlete.name }}</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Id:</strong>{{athlete.id}}</p>
+          <p><strong>Email:</strong> {{ athlete.email }}</p>
+          <p><strong>Sport:</strong> {{ athlete.sport }}</p>
+          <!-- Dropdown Menu -->
+          <div class="dropdown mt-3">
+            <button 
+              class="btn btn-primary dropdown-toggle w-100" 
+              type="button" 
+              id="dropdownMenuButton{{ athlete.id }}" 
+              data-bs-toggle="dropdown" 
+              aria-expanded="false">
+              Select Action
+            </button>
+            <ul class="dropdown-menu" [attr.aria-labelledby]="'dropdownMenuButton' + athlete.id">
+              <li>
+                <a class="dropdown-item" (click)="getTrainingHistory(athlete.id)">
+                  View Training History
+                </a>
+              </li>
+              <!-- <li >
+                <a class="dropdown-item" [routerLink]="['/coach-training-history', athlete?.id]">View Training History</a>
+              </li> -->
+      
+              <!-- <li>
+                <a class="dropdown-item" (click)="messageToAthlete(athlete.id)">
+                  Message
+                </a>
+              </li> -->
+              <li>
+                <a class="dropdown-item" (click)="addGoals(athlete.id)">
+                  Set Goals
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No Athletes Available -->
+<div *ngIf="!loading && athletes.length === 0" class="text-center">
+  <p>No athletes are currently available.</p>
+</div>
+
+<!-- Chart Section (Training History) -->
+<div *ngIf="chartData" class="mt-5">
+  <h3>Training History for Athlete</h3>
+  <app-training-history-chart [chartData]="chartData" [chartOptions]="chartOptions"></app-training-history-chart>
+</div>
+
+<!-- Loader -->
+<div *ngIf="loading" class="text-center">
+  <p>Loading...</p>
+</div>

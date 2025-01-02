@@ -1,0 +1,118 @@
+<app-athlete-header></app-athlete-header>
+
+<div class="container mt-5">
+  <h2 class="text-center text-primary">Edit Training Session</h2>
+
+  <div class="card shadow-lg mt-4">
+    <div class="card-body">
+      <!-- Training Session Details -->
+      <div class="form-group">
+        <label for="sessionDate" class="form-label text-primary">Session Date</label>
+        <input
+          type="date"
+          id="sessionDate"
+          class="form-control border-primary"
+          [(ngModel)]="trainingSession.date"
+        />
+      </div>
+      
+      <div class="form-group mt-3">
+        <label for="duration" class="form-label text-primary">Duration (minutes)</label>
+        <input
+          type="number"
+          id="duration"
+          class="form-control border-primary"
+          [(ngModel)]="trainingSession.duration"
+          min="1"
+        />
+      </div>
+
+      <!-- Existing Exercises Section -->
+      <div class="mb-4">
+        <h6 class="text-primary">Exercises</h6>
+        <ul class="list-group">
+          <li
+            *ngFor="let exercise of trainingSession?.exercises; let i = index"
+            class="list-group-item d-flex justify-content-between align-items-center"
+          >
+            <span>
+              <strong>{{ exercise.exerciseName }}</strong>
+              <span>- Value: {{ exercise.currentValue }}</span>
+            </span>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              (click)="removeExercise(exercise.id)"
+            >
+              Delete
+            </button>
+          </li>
+          <li
+            *ngIf="!trainingSession?.exercises?.length"
+            class="list-group-item text-center text-muted"
+          >
+            No exercises added yet.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Category and Exercise Selection -->
+      <div class="bg-light p-3 rounded">
+        <h6 class="text-primary">Add New Exercise</h6>
+        <div class="row g-2 align-items-center">
+          <!-- Category Selection -->
+          <div class="col-md-4">
+            <label for="category" class="form-label">Category</label>
+            <select
+              id="category"
+              class="form-control border-primary"
+              [(ngModel)]="selectedCategory"
+              (change)="onCategoryChange()"
+            >
+              <option value="" disabled selected>Select Category</option>
+              <option *ngFor="let category of categories" [value]="category">
+                {{ category }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Exercise Selection -->
+          <div class="col-md-4">
+            <label for="exercise" class="form-label">Exercise</label>
+            <select
+              id="exercise"
+              class="form-control border-primary"
+              [(ngModel)]="selectedExercise"
+              [disabled]="!selectedCategory"
+            >
+              <option value="" disabled selected>Select Exercise</option>
+              <option *ngFor="let exercise of exercises" [value]="exercise">
+                {{ exercise }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Exercise Value Input -->
+          <div class="col-md-3">
+            <label for="value" class="form-label">Value</label>
+            <input
+              type="number"
+              id="value"
+              class="form-control border-primary"
+              [(ngModel)]="currentExerciseValue"
+            />
+          </div>
+
+          <!-- Add Button -->
+          <div class="col-md-1 d-flex align-items-end">
+            <button class="btn btn-primary w-100" (click)="addExercise()">Add</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Save Changes Button -->
+      <button class="btn btn-success mt-4 w-100" (click)="saveChanges()">
+        Save Changes
+      </button>
+    </div>
+  </div>
+</div>

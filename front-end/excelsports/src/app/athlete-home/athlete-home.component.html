@@ -1,0 +1,95 @@
+<app-athlete-header [athlete]="athleteDetails"></app-athlete-header>
+
+<div class="container mt-4">
+  <div *ngIf="quote">
+    <blockquote class="blockquote">
+      <p class="mb-0">{{ quote }}</p>
+    </blockquote>
+    <footer class="blockquote-footer mt-2">- {{ author }}</footer>
+  </div>
+  <div class="row">
+    <!-- Left side: Progress -->
+    <div class="col-md-6">
+      <div class="card bg-white border-3 border-dark text-dark">
+        <div class="card-header">
+          <h3 class="text-center">Progress</h3>
+        </div>
+        <div class="card-body">
+          <div *ngIf="athleteProgress && objectKeys(athleteProgress).length > 0; else noProgress">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-white border-3 border-dark text-dark" *ngFor="let category of objectKeys(athleteProgress)">
+                <h4 class="mt-2"><strong>Category:</strong> {{ category }}</h4>
+                <div *ngFor="let exercise of objectKeys(athleteProgress[category])" class="mb-3">
+                  <p class="mb-1"><strong>Exercise:</strong>
+                    <a href="javascript:void(0)" (click)="fetchExerciseDetails(exercise)">
+                      {{ exercise }}
+                    </a>
+                  </p>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-striped bg-success" role="progressbar" 
+                      [style.width.%]="athleteProgress[category][exercise]" 
+                      [attr.aria-valuenow]="athleteProgress[category][exercise]" 
+                      aria-valuemin="0" aria-valuemax="100">
+                      {{ athleteProgress[category][exercise] | number:'1.2-2' }}%
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <ng-template #noProgress>
+            <p class="text-center">No progress data available yet.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: Latest Training Session -->
+    <div class="col-md-6">
+      <div class="card bg-white border-3 border-dark text-dark">
+        <div class="card-header">
+          <h3 class="text-center">Latest Training Session</h3>
+        </div>
+        <div class="card-body">
+          <div *ngIf="latestTrainingSession; else noTrainingSession">
+            <p><strong>Date:</strong> {{ latestTrainingSession.date | date: 'mediumDate' }}</p>
+            <p><strong>Duration:</strong> {{ latestTrainingSession.duration }} minutes</p>
+            <p><strong>Calories Burned:</strong> {{ latestTrainingSession.caloriesBurned }} cal</p>
+
+            <strong>Exercises:</strong>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-white border-3 border-dark text-dark" *ngFor="let exercise of latestTrainingSession.exercises">
+                {{ exercise.exerciseName }} - {{ exercise.currentValue }} 
+              </li>
+            </ul>
+          </div>
+
+          <ng-template #noTrainingSession>
+            <p class="text-center">No training session data available.</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal to show exercise details -->
+<div *ngIf="showModal" class="modal">
+  <div class="modal-content">
+    <h4>Exercise Details</h4>
+    <button (click)="closeModal()" class="close-btn" aria-label="Close">&times;</button>
+    <div *ngIf="exerciseDetails.length; else errorContent">
+      <div *ngFor="let exercise of exerciseDetails">
+        <p><strong>Name:</strong> {{ exercise.name }}</p>
+        <p><strong>Body Part:</strong> {{ exercise.bodyPart }}</p>
+        <p><strong>Instructions:</strong> {{ exercise.instructions }}</p>
+        <p><strong>Equipment:</strong> {{ exercise.equipment }}</p>
+        <img [src]="exercise.gifUrl" alt="{{ exercise.name }}" class="img-fluid" />
+      </div>
+    </div>
+    <ng-template #errorContent>
+      <p class="text-danger">{{ errorMessage }}</p>
+    </ng-template>
+  </div>
+</div>

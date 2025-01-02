@@ -1,0 +1,30 @@
+<app-coach-header></app-coach-header>
+
+<!-- Displaying Available Coaches -->
+<div *ngIf="!loading && athletes.length > 0" class="container mt-4">
+  <h3 class="text-center mb-4">Athlete Requests</h3>
+  <div class="row justify-content-center">
+    <div *ngFor="let athlete of athletes" class="col-lg-4 col-md-6 col-sm-12 mb-4">
+      <div class="card custom-card">
+        <div class="card-header custom-card-header">
+          <h5>{{ athlete.athleteName }}</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Id:</strong> {{ athlete.requestId }}</p>
+          <p><strong>Sport:</strong> {{ athlete.athleteSport }}</p>
+          <p><strong>Requested At:</strong> {{ athlete.requestedAt | date: 'yyyy-MM-dd' }}</p>
+          <p><strong>Status:</strong> {{ athlete.status }}</p>
+          <div class="d-flex justify-content-between mt-3">
+            <button class="btn btn-accept" (click)="acceptRequest(athlete.requestId)" *ngIf="athlete.status === 'PENDING'">Accept</button>
+            <button class="btn btn-decline" (click)="declineRequest(athlete.requestId)" *ngIf="athlete.status === 'PENDING'">Decline</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No Coaches Available -->
+<div *ngIf="!loading && athletes.length === 0" class="text-center text-muted">
+  <p>No athlete requests are currently available.</p>
+</div>

@@ -1,0 +1,84 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden; 
+  }
+  
+  
+  .container {
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    padding: 0 15px; 
+  }
+  
+  
+  .card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+  
+ 
+  .form-control {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 1rem; 
+  }
+  
+  
+  @media (max-width: 767px) {
+    
+    .container {
+      padding: 0 10px; 
+    }
+  
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+  
+    
+    .text-primary {
+      font-size: 1.5rem;
+    }
+  
+    .form-control {
+      font-size: 0.9rem; 
+    }
+  
+    
+    .btn-primary, .btn-outline-danger {
+      width: 100%; 
+      padding: 0.75rem 1.5rem; 
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .text-primary {
+      font-size: 1.25rem; 
+    }
+  
+    .btn-primary, .btn-outline-danger {
+      padding: 0.75rem 1rem;
+    }
+  
+    
+    .form-control {
+      padding: 0.75rem;
+    }
+  }
+  

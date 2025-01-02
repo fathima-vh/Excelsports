@@ -1,0 +1,103 @@
+.card-body {
+  padding: 20px;
+}
+
+.messages-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.message-card {
+  margin-bottom: 10px;
+}
+
+.spinner-border {
+  margin-top: 20px;
+}
+
+.bi-check-circle-fill {
+  font-size: 1.2rem;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+button.btn {
+  transition: all 0.3s ease;
+}
+
+button.btn:hover {
+  transform: translateY(-2px);
+}
+
+button.btn-sm {
+  margin-top: 5px;
+}
+
+.message-info {
+  flex: 1;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.card-header {
+  border-bottom: 2px solid #ccc;
+}
+
+.card-body {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.card-title {
+  font-weight: 500;
+}
+
+.alert-info {
+  background-color: #ffffff;
+  border-color: #b3e0ff;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.alert-info, .alert-danger {
+  border-radius: 8px;
+}
+
+button.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+button.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+button.btn-success:hover {
+  background-color: #218838;
+}
+
+button.btn-danger:hover {
+  background-color: #c82333;
+}
+button.btn i {
+  font-size: 1.25rem; /* Adjust icon size */
+}
+button.btn-outline-success:hover {
+  background-color: rgba(40, 167, 69, 0.1);  /* Light green background on hover */
+  border-color: #28a745;  /* Green border color */
+}
+
+button.btn-outline-success i {
+  font-size: 1.5rem;  /* Make the icon a bit larger */
+}

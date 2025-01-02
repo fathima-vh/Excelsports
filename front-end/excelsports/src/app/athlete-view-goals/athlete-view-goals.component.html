@@ -1,0 +1,28 @@
+<app-athlete-header></app-athlete-header>
+
+<div class="container mt-4 text-dark">
+  <h2 class="text-center mb-4">Training Goals</h2>
+
+  <div *ngIf="athleteGoals.length; else noGoals">
+    <div class="row">
+      <div *ngFor="let goal of athleteGoals" class="col-md-6 col-lg-4 mb-4">
+        <div class="card shadow-sm border-light h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title mb-3">Goal: {{ goal.id }}</h5>
+            <p class="card-text text-muted">
+              <strong>Category:</strong> {{ goal.targetCategory }} <br>
+              <strong>Exercise:</strong> {{ goal.targetExerciseName }} <br>
+              <strong>Target Value:</strong> {{ goal.targetValue }} 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noGoals>
+    <div class="alert alert-light text-center mt-5">
+      <p class="text-info">No goals found.</p>
+    </div>
+  </ng-template>
+</div>

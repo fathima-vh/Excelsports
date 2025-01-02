@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="training-session-service" />
+        <module name="Message-Service" />
+        <module name="category-service" />
+        <module name="coach-service" />
+        <module name="goal-service" />
+        <module name="exercise-service" />
+        <module name="eureka-server" />
+        <module name="api-gateway-server" />
+        <module name="athlete-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="17" />
+      <module name="auth-service" target="17" />
+      <module name="authentication-service" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Message-Service" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
+      <module name="api-gateway-server" options="-parameters" />
+      <module name="athlete-service" options="-parameters" />
+      <module name="auth-service" options="-parameters" />
+      <module name="authentication-service" options="-parameters" />
+      <module name="category-service" options="-parameters" />
+      <module name="coach-service" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
+      <module name="exercise-service" options="-parameters" />
+      <module name="goal-service" options="-parameters" />
+      <module name="training-session-service" options="-parameters" />
+    </option>
+  </component>
+</project>

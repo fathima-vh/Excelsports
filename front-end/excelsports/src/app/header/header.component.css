@@ -1,0 +1,28 @@
+.nav-link {
+    font-size: 1rem;
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    color: #00aaff;
+    text-decoration: underline;
+  }
+  
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .nav-item {
+    display: inline-block;
+  }
+  
+  .navbar-brand {
+    font-family: 'Arial Black', sans-serif;
+  }
+  

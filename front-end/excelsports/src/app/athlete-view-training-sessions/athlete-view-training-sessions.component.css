@@ -1,0 +1,100 @@
+/* Smooth transitions for interactive elements */
+.card {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight elevation on hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow on hover */
+}
+
+.card-body {
+  background-color: #fff;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.card-body:hover {
+  background-color: #f8f9fa; /* Light background change on hover */
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+
+.card-title:hover {
+  color: #0056b3; /* Darken title color on hover */
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border-color: #ffeeba;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.alert-warning:hover {
+  background-color: #ffeeba; /* Subtle change on hover */
+  color: #6c757d; /* Slightly muted text color */
+}
+
+.form-control {
+  border-radius: 4px;
+  border-color: #ced4da;
+  background-color: #fff;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #007bff; /* Focus state with blue border */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Glow effect on focus */
+}
+
+.btn-outline-primary {
+  color: #007bff;
+  border-color: #007bff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+.text-dark {
+  color: #333;
+}
+
+/* Smooth transition for input date change */
+input[type="date"] {
+  transition: background-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+  background-color: #f8f9fa; /* Subtle light background on focus */
+}

@@ -1,0 +1,84 @@
+<div class="background"> 
+  <!-- Header -->
+  <div class="header-links">
+    <a routerLink="/home" class="brand-logo text-white text-decoration-none">
+      <strong>ExcelSports</strong>
+    </a>
+    <nav>
+      <ul class="nav">
+        <li class="nav-item">
+          <a routerLink="/home" class="nav-link text-white">Home</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/athlete-signup" class="nav-link text-white">Athlete Signup</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/coach-signup" class="nav-link text-white">Coach Signup</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/login" class="nav-link text-white">Login</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Login Form -->
+  <div class="container mt-5">
+    <div class="row justify-content-start">
+      <div class="col-lg-5 col-md-6">
+        <div class="card bg-white text-dark shadow">
+          <div class="card-body">
+            <h3 class="text-center mb-4">Login</h3>
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+              <!-- Email Field -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  class="form-control" 
+                  [(ngModel)]="loginData.email" 
+                  required 
+                  placeholder="Enter your email">
+              </div>
+              
+              <!-- Password Field -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input 
+                  type="password" 
+                  id="password" 
+                  name="password" 
+                  class="form-control" 
+                  [(ngModel)]="loginData.password" 
+                  required 
+                  placeholder="Enter your password">
+              </div>
+              
+              <!-- Role Dropdown -->
+              <div class="mb-3">
+                <label for="role" class="form-label">Role</label>
+                <select 
+                  id="role" 
+                  name="role" 
+                  class="form-select" 
+                  [(ngModel)]="loginData.role" 
+                  required>
+                  <option value="" disabled selected>Select your role</option>
+                  <option value="ATHLETE">Athlete</option>
+                  <option value="COACH">Coach</option>
+                </select>
+              </div>
+              
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.valid">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

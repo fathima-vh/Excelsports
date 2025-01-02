@@ -1,0 +1,149 @@
+<app-coach-header></app-coach-header>
+<div class="container mt-4">
+  <!-- Message Sending Form -->
+  <div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card shadow-sm border-primary">
+        <div class="card-header bg-primary text-white">
+          <h5 class="mb-0">Send Message</h5>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="sendMessage()" #messageForm="ngForm">
+            <!-- Athlete Dropdown -->
+            <div class="mb-3">
+              <label for="athleteSelect" class="form-label">Choose Athlete</label>
+              <select id="athleteSelect" class="form-select" [(ngModel)]="selectedAthleteId" name="athlete" required>
+                <option *ngFor="let athlete of athletes" [value]="athlete.id">
+                  {{ athlete.name }}
+                </option>
+              </select>
+            </div>
+
+            <!-- Message Content -->
+            <div class="mb-3">
+              <label for="messageContent" class="form-label">Message</label>
+              <textarea id="messageContent" class="form-control" rows="4" [(ngModel)]="messageContent" name="content" required></textarea>
+            </div>
+
+            <!-- Send Button -->
+            <button type="submit" class="btn btn-primary w-100" [disabled]="!messageForm.valid">
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Messages Section -->
+    <div class="col-lg-8 col-md-6 col-sm-12">
+      <div class="card shadow-sm border-secondary">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between">
+          <h5 class="mb-0">Messages</h5>
+          <div>
+            <!-- Sorting Dropdown -->
+            <div class="btn-group">
+              <button class="btn btn-light btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-sort-alpha-down text-primary"></i>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" (click)="sortMessages('time', 'asc')">
+                    <i class="bi bi-clock text-primary"></i> Time <i class="bi bi-arrow-up"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="sortMessages('time', 'desc')">
+                    <i class="bi bi-clock text-primary"></i> Time <i class="bi bi-arrow-down"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="sortMessages('read', 'asc')">
+                    <i class="bi bi-eye text-info"></i> Read Status <i class="bi bi-arrow-up"></i>
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" (click)="sortMessages('read', 'desc')">
+                    <i class="bi bi-eye-slash text-info"></i> Read Status <i class="bi bi-arrow-down"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body messages-container">
+          <!-- Search Bar -->
+          <div class="mb-3">
+            <label for="searchInput" class="form-label">Search Messages</label>
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search by athlete name or content"
+              [(ngModel)]="searchTerm"
+              (input)="filterMessages()"
+            />
+          </div>
+
+          <div *ngIf="loading" class="text-center">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+          <div *ngIf="errorMessage" class="alert alert-danger">
+            {{ errorMessage }}
+          </div>
+
+          <div *ngIf="!loading && !errorMessage">
+            <div *ngIf="filteredMessages.length === 0" class="alert alert-info">
+              No messages found.
+            </div>
+            <div *ngFor="let message of filteredMessages" class="message-card">
+              <div class="card mb-3">
+                <div class="card-body d-flex justify-content-between align-items-start">
+                  <div class="message-info" *ngIf="message.role === 'ATHLETE'">
+                    <h6 class="card-title text-muted mb-1">
+                      From: {{ message.athleteName }}
+                    </h6>
+                    <p class="card-text">{{ message.content }}</p>
+                    <p class="text-muted mb-0">
+                      <small>Received at: {{ message.sentAt | date: 'short' }}</small>
+                    </p>
+                    <div>
+                      <small class="d-flex align-items-center">
+                        <span [class.text-success]="message.read" [class.text-danger]="!message.read">
+                          {{ message.read ? 'Read' : 'Unread' }}
+                        </span>
+                        <i *ngIf="message.read" class="ms-2 bi bi-check-circle-fill text-success"></i>
+                      </small>
+                    </div>
+                  </div>
+                  <div class="message-info" *ngIf="message.role === 'COACH'">
+                    <h6 class="card-title text-muted mb-1">
+                      To: {{ message.athleteName }}
+                    </h6>
+                    <p class="card-text">{{ message.content }}</p>
+                    <p class="text-muted mb-0">
+                      <small>Sent at: {{ message.sentAt | date: 'short' }}</small>
+                    </p>
+                  </div>
+                  <div class="button-group">
+                    <button
+                    class="btn btn-sm mb-2"
+                    *ngIf="!message.read && message.role === 'ATHLETE'"  
+                    (click)="markAsRead(message.id)">
+                    <i class="bi bi-envelope-check text-success"></i>
+                  </button>
+                    <button class="btn btn-sm" (click)="deleteMessage(message.id)">
+                      <i class="bi bi-trash text-danger"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

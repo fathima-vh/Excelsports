@@ -1,0 +1,250 @@
+/* General Reset and Body Styling */
+html {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa; 
+  color: #333; 
+}
+
+.container {
+  max-width: 1000px; 
+  margin: 50px auto;
+  padding: 0 20px; 
+}
+
+
+.goal-form-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 30px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goal-form-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.goal-form-card h4 {
+  color: #4eb4d3; 
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.goal-form-card label {
+  color: #5c6b77;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.card-title{
+  text-decoration: #4eb4d3; 
+}
+.goal-form-card .form-control {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 1.1rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.goal-form-card .form-control:focus {
+  border-color: #4eb4d3;
+  box-shadow: 0 0 5px #45a2be;
+}
+
+.goal-form-card .btn {
+  background-color: #4eb4d3;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 12px 24px;
+  border-radius: 8px;
+  width: 100%;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.goal-form-card .btn:hover {
+  background-color: #2fa2c5;
+  transform: translateY(-2px);
+}
+
+
+.goals-list {
+  padding: 50px 0;
+}
+
+.goals-scroll-container {
+  overflow-x: hidden;
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.goal-cards-container {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.5s ease;
+  margin: 0 40px; 
+}
+
+.goal-card {
+  width: 300px; 
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: none; 
+  padding: 20px;
+  border: none;
+}
+
+.goal-card:hover {
+  transform: translateY(-6px);
+}
+
+.goal-card .card-title {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.goal-card .btn {
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.goal-card .category-name {
+  color: #4eb4d3; 
+  font-weight: 600;
+  font-size: 1.3rem; 
+  margin-bottom: 5px; 
+}
+
+.goal-card .btn-warning {
+  background-color: #f4a261;
+}
+
+.goal-card .btn-danger {
+  background-color: #e63946;
+}
+
+.goal-card .btn:hover {
+  opacity: 0.8;
+}
+
+.goal-card .btn-sm {
+  padding: 5px 10px;
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: none;
+  color: white;
+  font-size: 1.3rem;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.scroll-btn.left {
+  left: -40px; 
+}
+
+.scroll-btn.right {
+  right: -40px; 
+}
+
+
+.d-flex {
+  display: flex;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.gap-4 {
+  gap: 2rem;
+}
+
+.mt-5 {
+  margin-top: 4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: #888;
+}
+
+@media (max-width: 768px) {
+  .goal-form-card {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .goal-card {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .goals-list .d-flex {
+    flex-direction: column;
+  }
+
+  .goals-scroll-container {
+    overflow-x: scroll;
+  }
+}
+
+
+.btn-icon {
+  background-color: transparent;
+  border: none;
+  color: #5bc0de;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.btn-icon:hover {
+  transform: translateY(-5px);
+  color: #279ec2;
+}
+
+.delete-btn {
+  color: #e63946;
+}
+
+.delete-btn:hover {
+  transform: translateY(-5px);
+  color: #d32f2f;
+}

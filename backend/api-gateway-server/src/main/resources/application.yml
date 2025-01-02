@@ -1,0 +1,48 @@
+spring:
+  cloud:
+    gateway:
+      mvc:
+        default-filters:
+          - ResponseHeader=Access-Control-Allow-Origin Access-Control-Allow-Credentials, RETAIN_UNIQUE
+        globalcors:
+            cors-configurations:
+              '[/**]':
+                allowed-origins: "*"
+                allowed-methods: "*"
+        #                allowed-headers: "*"
+        routes:
+          - id: athlete-service
+            uri: lb://ATHLETE-SERVICE
+            predicates:
+              - Path=/api/v1/athletes/**
+          - id: coach-service
+            uri: lb://COACH-SERVICE
+            predicates:
+              - Path=/api/v1/coaches/**
+          - id: category-service
+            uri: lb://CATEGORY-SERVICE
+            predicates:
+              - Path=/api/v1/category/**
+          - id: exercise-service
+            uri: lb://EXERCISE-SERVICE
+            predicates:
+              - Path=/api/v1/exercises/**
+          - id: training-session-service
+            uri: lb://TRAINING-SESSION-SERVICE
+            predicates:
+              - Path=/api/v1/training-sessions/**
+          - id: message-service
+            uri: lb://MESSAGE-SERVICE
+            predicates:
+              - Path=/api/v1/messages/**
+          - id: goal-service
+            uri: lb://GOAL-SERVICE
+            predicates:
+              - Path=/api/v1/goals/**
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${EUREKA_HOST:localhost}:${EUREKA_PORT:8761}/eureka/
+  instance:
+    prefer-ip-address: true

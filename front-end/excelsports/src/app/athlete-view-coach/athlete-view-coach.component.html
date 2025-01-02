@@ -1,0 +1,100 @@
+<app-athlete-header></app-athlete-header>
+<div class="container mt-4">
+  <!-- Display Spinner While Loading -->
+  <div *ngIf="loading" class="text-center text-muted">
+    <p>Loading...</p>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="!loading && errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+
+  <h3 *ngIf="!currentCoach && availableCoaches.length > 0" class="mb-4">Available Coaches</h3>
+
+  <div *ngIf="!loading && availableCoaches.length > 0" class="row">
+    <div class="col-md-4" *ngFor="let coach of availableCoaches">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">{{ coach.name }}</h5>
+          <p class="card-text"><strong>Sport:</strong> {{ coach.sport }}</p>
+          <p class="card-text"><strong>Experience:</strong> {{ coach.experience }} years</p>
+          <button 
+            class="btn btn-primary w-100" 
+            (click)="sendRequestToCoach(coach.id)"
+          >
+            Request Coach
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <!-- Coach Details Section -->
+    <div class="col-md-8">
+      <div *ngIf="currentCoach" class="card shadow-sm mb-4">
+        <div class="card-header text-white">
+          <h4 class="mb-0">Your Coach</h4>
+        </div>
+        <div class="card-body">
+          <p><strong>Id:</strong> {{ currentCoach.id }}</p>
+          <p><strong>Name:</strong> {{ currentCoach.name }}</p>
+          <p><strong>Email:</strong> {{ currentCoach.email }}</p>
+          <p><strong>Sport:</strong> {{ currentCoach.sport }}</p>
+          <button
+            class="btn  w-100"
+            (click)="toggleChat()"
+          >
+            Message
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div *ngIf="showChat" class="col-md-4 chat-container">
+      <div class="card shadow-sm chat-window">
+        <div class="card-header text-white d-flex justify-content-between">
+          <h5 class="mb-0">Chat with {{ currentCoach?.name }}</h5>
+          <button class="btn btn-secondary " (click)="toggleChat()">X</button>
+        </div>
+        <div class="card-body">
+          <!-- Messages List -->
+          <div class="messages-container">
+            <div *ngFor="let message of messages" class="message-card mb-3">
+              <div
+                class="p-3 rounded"
+                [ngClass]="{ 'athlete-message text-end': message.role === 'ATHLETE', 'coach-message ': message.role === 'COACH' }"
+              >
+                <small>
+                  <strong>{{ message.role === 'COACH' ? currentCoach?.name : 'You' }}</strong>:
+                </small>
+                <p class="mb-0">{{ message?.content }}</p>
+                <small class="text-muted">{{ message?.sentAt | date: 'short' }}</small>
+              </div>
+            </div>
+            <div *ngIf="messages.length === 0" class="text-center text-muted">
+              <p>No messages yet. Start the conversation!</p>
+            </div>
+          </div>
+
+          <!-- Message Input -->
+          <textarea
+            class="form-control mt-3"
+            [(ngModel)]="messageContent"
+            placeholder="Type your message..."
+            rows="2"
+          ></textarea>
+          <button
+            class="btn w-100 mt-2"
+            (click)="sendMessage()"
+          >
+            Send Message
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

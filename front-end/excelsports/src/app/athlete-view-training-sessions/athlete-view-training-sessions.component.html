@@ -1,0 +1,39 @@
+<app-athlete-header [athlete]="athleteDetails"></app-athlete-header>
+
+<div class="container mt-4 text-dark">
+  <h2 class="text-center text-primary mb-4">Training Sessions</h2>
+
+  <!-- Search Bar for Date -->
+  <div class="mb-4">
+    <input 
+      type="date" 
+      class="form-control" 
+      [(ngModel)]="searchDate" 
+      (ngModelChange)="filterSessionsByDate()"
+      placeholder="Search by Date"
+    />
+  </div>
+
+  <div *ngIf="filteredSessions.length; else noSessions">
+    <div *ngFor="let session of filteredSessions" class="card mb-3 shadow-sm">
+      <div class="card-body">
+        <h5 class="card-title text-primary">Session Date: {{ session.date }}</h5>
+        <p class="card-text">
+          <strong>Session Id:</strong> {{ session.id }} <br>
+          <strong>Calories Burned:</strong> {{ session.caloriesBurned }} <br>
+          <strong>Duration:</strong> {{ session.duration }} minutes
+        </p>
+        <div class="d-flex justify-content-between mt-3">
+          <button class="btn btn-outline-primary w-45" (click)="editTrainingSession(session)">View</button>
+          <button class="btn btn-outline-danger w-45" (click)="deleteSession(session.id)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noSessions>
+    <div class="alert alert-warning text-center mt-5">
+      <p>No training sessions found.</p>
+    </div>
+  </ng-template>
+</div>

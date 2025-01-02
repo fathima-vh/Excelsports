@@ -1,0 +1,126 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  overflow: auto;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4; /* Subtle background color */
+}
+
+h3 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.scrollable-container {
+  padding: 20px;
+  max-height: 90vh; /* Keep the scrollable area within view */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.card {
+  top: 30px;
+  
+  border: none; /* Remove border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Ensure content stays inside the card */
+}
+
+.card-header {
+  background-color: #242222; /* Bootstrap primary color */
+  color: white;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+
+.card-body { 
+  background-color: white;
+  padding: 15px;
+}
+
+.card-body p {
+  font-size: 14px;
+  color: #555;
+}
+
+.dropdown-menu {
+  border-radius: 8px; /* Rounded dropdown menu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.dropdown-item {
+  color: #101111; /* Highlight dropdown items */
+}
+.card .dropdown-toggle {
+  background-color: #5bc0de; /* Lighter blue button */
+  border: none;
+  color: white;
+  font-size: 14px;
+}
+.dropdown-item:hover {
+  
+  background-color: #f0f8ff; /* Light hover effect */
+}
+
+@media (min-width: 768px) {
+  .card {
+    transition: transform 0.3s ease; /* Add smooth hover effect */
+  }
+  .card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+  }
+}
+
+.text-center {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #777;
+}
+.btn-primary {
+  background-color: #5bc0de; /* Light blue */
+  border: none;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #51b1d1; /* Slightly darker light blue on hover */
+  color: white;
+}
+
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #47a4c4; /* Darker blue for active/focused state */
+  color: white;
+  box-shadow: none; /* Remove focus outline */
+}
+
+
+
+
+.container {
+  max-width: 900px;
+}
+
+.scrollable-container {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card {
+  margin: 10px 0;
+}
+
+canvas {
+  max-width: 100%;
+}
+
+.mt-5 {
+  margin-top: 40px;
+}

@@ -1,0 +1,114 @@
+/* Overall page style */
+body {
+    background-color: #f9f9f9; /* Light background for the page */
+    font-family: 'Arial', sans-serif; /* Clean font */
+    color: #333; /* Dark text for readability */
+    transition: background-color 0.3s ease; /* Transition for background color */
+  }
+  
+  /* Card styling with smooth hover transition */
+  .card {
+    background-color: #ffffff; /* White card background */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Slight lifting effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Deepened shadow on hover */
+  }
+  
+  /* Card body padding */
+  .card-body {
+    padding: 20px;
+    transition: background-color 0.3s ease; /* Transition for background color */
+  }
+  
+  .card-body:hover {
+    background-color: #f8f9fa; /* Subtle background change on hover */
+  }
+  
+  /* Heading styling */
+  h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #17a2b8; /* Info color for headings */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  h6:hover {
+    color: #0056b3; /* Darker color on hover for interactive feel */
+  }
+  
+  /* Form control styling */
+  .form-control {
+    background-color: #f7f9fc; /* Light background for form controls */
+    border-color: #007bff; /* Primary color border */
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  }
+  
+  .form-control:focus {
+    border-color: #0056b3; /* Darker border on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow effect on focus */
+  }
+  
+  /* Button styling with hover effect */
+  button {
+    border-radius: 5px;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition for opacity and transform */
+  }
+  
+  button:hover {
+    opacity: 0.9; /* Slightly dim on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+  }
+  
+  /* Light background for sections */
+  .bg-light {
+    background-color: #f8f9fa; /* Light background */
+    transition: background-color 0.3s ease; /* Smooth background transition */
+  }
+  
+  .bg-light:hover {
+    background-color: #e9ecef; /* Darker shade on hover */
+  }
+  
+  /* Muted text style for empty lists or less important text */
+  .text-muted {
+    color: #6c757d; /* Muted text color for empty lists */
+  }
+  
+  /* Info color for text */
+  .text-info {
+    color: #17a2b8; /* Info color */
+    transition: color 0.3s ease; /* Smooth color transition */
+  }
+  
+  .text-info:hover {
+    color: #0056b3; /* Darken color on hover */
+  }
+  
+  /* Button styling for danger (delete) actions */
+  .btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  }
+  
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  /* Smooth transitions for any links or interactive text */
+  a {
+    transition: color 0.3s ease;
+  }
+  
+  a:hover {
+    color: #0056b3; /* Interactive hover effect */
+  }
+  

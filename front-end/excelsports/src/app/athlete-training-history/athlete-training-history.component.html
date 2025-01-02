@@ -1,0 +1,100 @@
+<app-athlete-header></app-athlete-header>
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <h2 class="text-center mb-4">Training History</h2>
+
+    <!-- Input fields -->
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="year" class="form-label">Year</label>
+          <input
+            type="number"
+            id="year"
+            [(ngModel)]="year"
+            class="form-control"
+            placeholder="Enter year"
+            (change)="getTrainingHistory()"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="month" class="form-label">Month</label>
+          <input
+            type="number"
+            id="month"
+            [(ngModel)]="month"
+            class="form-control"
+            placeholder="Enter month (1-12)"
+            (change)="getTrainingHistory()"
+          />
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="day" class="form-label">Day</label>
+          <input
+            type="number"
+            id="day"
+            [(ngModel)]="day"
+            class="form-control"
+            placeholder="Enter day (1-31)"
+            (change)="getTrainingHistory()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="text-center mt-3">
+      <button class="btn btn-primary me-2" (click)="getTrainingHistory()">Apply Filters</button>
+      <button class="btn btn-secondary" (click)="resetFilters()">Reset Filters</button>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Training History Table -->
+    <div *ngIf="trainingHistory.length > 0" class="mt-5">
+      <h3 class="text-center">Training History Details</h3>
+      <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+          <thead class="table-dark">
+            <tr>
+              <th>Date</th>
+              <th>Duration</th>
+              <th>Exercises</th>
+              <th>Calories Burned</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let session of trainingHistory">
+              <td>{{ session.date | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ session.duration }} mins</td>
+              <td>
+                <ul class="mb-0" *ngFor="let category of session.categorizedExercises | keyvalue">
+                  <li *ngFor="let exercise of category.value">
+                    {{ exercise.exerciseName }} - {{ exercise.currentValue }} reps
+                  </li>
+                </ul>
+              </td>
+              <td>{{ session.totalCaloriesBurned }} cal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Calories Chart -->
+    <div *ngIf="trainingHistory.length > 0" class="mt-5">
+      <h3 class="text-center">Calories Burned Over Time</h3>
+      <div class="chart-container">
+        <canvas id="caloriesChart" width="400" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+/* Background */
+.background {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Content starts from the top */
+    align-items: center;
+    height: 130%;
+    /* width: 90%; */
+    min-height: 100vh; /* Full screen height */
+    background-image: url('https://images.hdqwalls.com/download/cristiano-ronaldo-kicking-football-27-1400x1050.jpg');
+    background-size: cover;
+    background-position: left center;
+    background-repeat: no-repeat;
+    margin: 0;
+    transition: all 0.3s ease;
+  }
+  
+  /* Header Styles */
+  .header-links {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    z-index: 10;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+  }
+    
+  .brand-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+    
+  .nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px;
+  }
+    
+  .nav-item {
+    list-style: none;
+  }
+    
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+    
+  .nav-link:hover {
+    color: #f39c12; /* Highlight color on hover */
+    transform: scale(1.1); /* Zoom effect */
+  }
+  
+  /* Main Content */
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    z-index: 5;
+    padding: 60px 20px; /* Padding to space out content */
+    margin-top: -80px; 
+    margin-left: -370px;
+    flex-grow: 1; /* Ensures content takes remaining space */
+  }
+  
+  /* Footer Styles */
+  .footer {
+    width: 100%;
+    padding: 1.5rem 0;
+    background-color: #222; /* Dark background for footer */
+    text-align: center;
+    color: white;
+    margin-top: 0; /* No gap between content and footer */
+  }
+  
+  .footer a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer a:hover {
+    color: #f39c12; /* Highlight color on hover */
+  }
+  
+  /* Container in Footer */
+  .container-fluid.bg-dark {
+    padding: 1.5rem 0;
+    margin: 0;
+  }
+  

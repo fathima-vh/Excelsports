@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container-fluid">
+    <!-- Navbar Brand -->
+    <a class="navbar-brand ms-3" routerLink="/coach-home">ExcelSports</a>
+
+    <!-- Animated Button -->
+    <button
+      class="menu-button"
+      [class.open]="isSidebarOpen"
+      (click)="toggleSidebar()"
+      aria-label="Toggle navigation"
+    >
+      <div></div>
+      <div></div>
+      <div></div>
+    </button>
+
+    <!-- Right-side Links -->
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/login" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar -->
+<div
+  class="offcanvas offcanvas-start bg-dark text-white"
+  [class.show]="isSidebarOpen"
+>
+  
+  <div>
+    <h5 class="offcanvas-title">Menu</h5>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-group">
+      <li class="list-group-item bg-dark">
+        <a class="nav-link text-white" routerLink="/coach-home">Home</a>
+      </li>
+      <li class="list-group-item bg-dark">
+        <a class="nav-link text-white" [routerLink]="['/coach-athletes']" >Athletes</a>
+      </li>
+      <li class="list-group-item bg-dark">
+        <a class="nav-link text-white" routerLink="/coach-view-requests" (click)="viewRequests()">Requests</a>
+      </li>
+      <li class="list-group-item bg-dark">
+        <a class="nav-link text-white" [routerLink]="['/coach-message',coach?.id]" (click)="message()">Message</a>
+      </li>
+      <li class="list-group-item bg-dark">
+        <a class="nav-link text-white" routerLink="/coach-profile" >View Profile</a>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+/* General styles */
+body {
+  background-color: #f8f9fa;
+  color: #333;
+}
+.card-header{
+  background-color:#4eb4d3;
+}
+/* Chat Window Adjustments */
+.chat-container {
+  margin-left: -100px; /* Adjust chat section slightly to the left */
+}
+
+.chat-window {
+  width: 100%; /* Ensure chat window fits nicely */
+}
+
+.messages-container {
+  max-height: 300px; /* Limit height for scrolling */
+  overflow-y: auto; /* Add vertical scrolling */
+  padding-right: 8px; /* Add padding for smooth scrolling experience */
+}
+
+/* Custom Scrollbar for Messages */
+.messages-container::-webkit-scrollbar {
+  width: 8px;
+}
+.coach-message{
+  background-color: #e3e9f1;
+}
+.athlete-message{
+  background-color:rgb(249, 241, 252);
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+  background-color: #94cbdb;
+  border-radius: 4px;
+}
+
+.messages-container::-webkit-scrollbar-thumb:hover {
+  background-color: #61b8d3;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  width: 400px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  border-radius: 8px 8px 0 0;
+}
+
+textarea {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+button {
+  border-radius: 4px;
+  background-color: #7cc5db;
+  transition: transform 0.2s;
+}
+
+button:hover {
+  background-color: #4facc9;
+  transform: translateY(-1px);
+}
+
+.text-muted {
+  font-style: italic;
+}

@@ -1,0 +1,41 @@
+<app-coach-header></app-coach-header>
+
+<div class="container mt-5">
+  <div class="row">
+    <!-- Greeting -->
+    <div class="col-12 text-center mb-4" >
+      <h2 class="text-black">Welcome, Coach {{ coach?.name || 'Guest' }}!</h2>
+    </div>
+
+    
+    <!-- Pending Requests Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card bg-info text-white shadow mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Pending Requests</h5>
+          <p class="card-text" style="font-size: 2rem;" routerLink="/coach-view-requests">{{ pendingRequestsCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Unread Messages Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card bg-warning text-dark shadow mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">Unread Messages</h5>
+          <p class="card-text" style="font-size: 2rem;" [routerLink]="['/coach-message', coach?.id]">{{ unreadMessagesCount }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Number of Athletes Card -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card bg-info text-white shadow mb-4">
+        <div class="card-body text-center">
+          <h5 class="card-title">No. Of Athletes</h5>
+          <p class="card-text" style="font-size: 2rem;" [routerLink]="['/coach-athletes']">{{ coach?.athleteCount }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

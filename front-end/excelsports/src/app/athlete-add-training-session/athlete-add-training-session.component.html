@@ -1,0 +1,32 @@
+<app-athlete-header></app-athlete-header>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h2 class="text-center mb-4">Add Training Session</h2>
+      <form [formGroup]="trainingSessionForm" (ngSubmit)="submitForm()">
+        <div class="form-group mb-3">
+          <label for="date" class="form-label">Date</label>
+          <input
+            type="date"
+            id="date"
+            class="form-control"
+            formControlName="date"
+          />
+        </div>
+        <div class="form-group mb-3">
+          <label for="duration" class="form-label">Duration (in minutes)</label>
+          <input
+            type="number"
+            id="duration"
+            class="form-control"
+            formControlName="duration"
+            placeholder="Enter duration"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary w-100 mt-3" [disabled]="trainingSessionForm.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

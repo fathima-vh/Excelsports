@@ -1,0 +1,35 @@
+.menu-button {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .menu-button div {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-button.open div:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 5px;
+  }
+  
+  .menu-button.open div:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-button.open div:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -5px;
+  }
+  

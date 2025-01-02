@@ -1,0 +1,54 @@
+<app-athlete-header ></app-athlete-header>
+<div class="container mt-3">
+  <h2 class="text-center">Athlete Profile</h2>
+
+  <form *ngIf="athleteDetails" (ngSubmit)="updateAthleteDetails()">
+    <!-- Athlete ID (Non-editable) -->
+    <div class="form-group mb-3">
+      <label for="athleteId">ID</label>
+      <input type="text" id="athleteId" class="form-control" [value]="athleteDetails.id" disabled />
+    </div>
+
+    <!-- Athlete Name (Editable) -->
+    <div class="form-group mb-3">
+      <label for="athleteName">Name</label>
+      <input type="text" id="athleteName" class="form-control" [(ngModel)]="athleteDetails.name" name="name" [readonly]="!isEditing" />
+    </div>
+
+    <!-- Athlete Email (Editable) -->
+    <div class="form-group mb-3">
+      <label for="athleteEmail">Email</label>
+      <input type="email" id="athleteEmail" class="form-control" [(ngModel)]="athleteDetails.email" name="email" [readonly]="!isEditing" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="athleteSport">Sport</label>
+      <input type="text" id="athleteSport" class="form-control" [(ngModel)]="athleteDetails.sport" name="sport" [readonly]="!isEditing" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="athleteSport">Height</label>
+      <input type="text" id="athleteHeight" class="form-control" [(ngModel)]="athleteDetails.height" name="height" [readonly]="!isEditing" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="athleteSport">Weight</label>
+      <input type="text" id="athleteWeight" class="form-control" [(ngModel)]="athleteDetails.weight" name="weight" [readonly]="!isEditing" />
+    </div>
+    <div class="form-group mb-3">
+      <label for="athleteSport">Daily Calorie Goal</label>
+      <input type="text" id="athleteGoal" class="form-control" [(ngModel)]="athleteDetails.goalCalorie" name="goalCalorie" [readonly]="!isEditing" />
+    </div>
+
+
+    <div class="d-flex justify-content-between">
+      <button type="button" class="btn btn-primary" (click)="toggleEdit()">
+        {{ isEditing ? 'Save' : 'Edit Profile' }}
+      </button>
+
+      <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+    </div>
+  </form>
+</div>
+
+  
